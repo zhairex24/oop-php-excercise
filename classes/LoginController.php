@@ -3,7 +3,7 @@
 trait Validator {
     private function emptyInput() {
         $result;
-        if(empty($this->first_name) || empty($this->last_name) || empty($this->date_of_birth)) {
+        if(empty($this->username) || empty($this->password)) {
             $result = false;
         } else {
             $result = true;

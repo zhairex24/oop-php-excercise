@@ -3,8 +3,8 @@
 if(isset($_POST['submit'])) {
 
     // Grabbing the data
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     // Instantiate LoginController class
     include "../classes/Dbh.php";
@@ -14,7 +14,7 @@ if(isset($_POST['submit'])) {
     $loginControllerObj = new LoginController($username, $password);
 
     // Running error handlers and user signup
-    $loginControllerObj->addUser();
+    $loginControllerObj->loginUser();
 
     // Going to back to front page
     header("location: ../index.php?error=none");

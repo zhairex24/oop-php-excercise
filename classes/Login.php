@@ -1,10 +1,11 @@
 <?php
 
 class Login extends Dbh {
-    protected function getUser($first_name, $last_name) {
+    protected function getUser($username, $password) {
         $stmt = $this->connect()->prepare('SELECT password FROM users WHERE username = ? OR email = ?;');
-
-        if(!$stmt->execute([$username, $password])) {
+        // var_dump($username, $password, $stmt, $stmt->execute([$username, $username]), $stmt->rowCount());
+        // die();
+        if(!$stmt->execute([$username, $username])) {
             $stmt = null;
             header("location: ../index.php?error=stmtfailed");
             exit();
@@ -12,7 +13,7 @@ class Login extends Dbh {
 
         if($stmt->rowCount() == 0) {
             $stmt = null;
-            header("location: ../index.php?error=usernotfound");
+            header("location: ../index.php?error=usernotfoundss");
             exit();
         }
 
@@ -34,7 +35,7 @@ class Login extends Dbh {
 
             if($stmt->rowCount() == 0) {
                 $stmt = null;
-                header("location: ../index.php?error=usernotfound");
+                header("location: ../index.php?error=usernotfoundssasd");
                 exit();
             }
 
@@ -42,6 +43,8 @@ class Login extends Dbh {
             session_start();
             $_SESSION['userid'] = $user[0]['id'];
             $_SESSION['username'] = $user[0]['username'];
+            // var_dump($user[0]['id'], $user[0]['username'], $_SESSION['userid'], $_SESSION['username']);
+            // die();
             $stmt = null;
         }
 

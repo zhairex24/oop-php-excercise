@@ -30,7 +30,7 @@
     <?php
         } else {
     ?>
-        <form action="includes/register.php" method="post">
+        <form action="includes/register.php" method="post" enctype="multipart/form-data">
             <input type="text" name="username" placeholder="Username">
             <input type="text" name="email" placeholder="Email">
             <input type="password" name="password" placeholder="Password">
@@ -38,6 +38,7 @@
             <input type="text" name="first_name" placeholder="First Name">
             <input type="text" name="last_name" placeholder="Last Name">
             <input type="date" name="date_of_birth" placeholder="Birthday">
+            <input type="file" name="image" value="">
             <button type="submit" name="submit">Register</button>
         </form>
         
